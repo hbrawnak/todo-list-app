@@ -7,7 +7,7 @@ import (
 
 func Router() *mux.Router {
 	router := mux.NewRouter()
-	router.HandleFunc("/", middleware.HealthCheckHandler).Methods("GET", "OPTIONS")
+	router.HandleFunc("/", middleware.Home).Methods("GET", "OPTIONS")
 
 	r := router.PathPrefix("/api").Subrouter()
 	r.HandleFunc("/task", middleware.GetAllTask).Methods("GET", "OPTIONS")
